@@ -8,7 +8,9 @@ app.use(express.static('public'));
 
 // Ruta de ejemplo
 app.get('/', (req: Request, res: Response) => {
-  res.json({ message: '¡Hola mundo! Servidor Express con TypeScript funcionando.' });
+  res.json({
+    message: '¡Hola mundo! Servidor Express con TypeScript funcionando.',
+  });
 });
 
 // Middleware de manejo de errores

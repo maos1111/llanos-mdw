@@ -1,15 +1,20 @@
+import 'dotenv/config';
 import express, { Request, Response } from 'express';
+import { connectToDatabase } from './database';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.static('public'));
 
+connectToDatabase();
+
 // Ruta de ejemplo
 app.get('/', (req: Request, res: Response) => {
   res.json({
-    message: '¡Hola mundo! Servidor Express con TypeScript funcionando.',
+    message: 'Hola mundo',
+    port: PORT,
   });
 });
 
